@@ -1,0 +1,403 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINHAI RESIN | Advanced Ion Exchange Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700;900&display=swap');
+        :root { --primary: #C1272D; --secondary: #000000; --accent: #FFFFFF; }
+        body { font-family: 'Arial', sans-serif; color: var(--secondary); background: var(--accent); padding-top: 80px; overflow-x: hidden; }
+        .bg-hex { background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.923' viewBox='0 0 60 103.923' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.321zm0-3.464l27-15.588v-31.177L30 38.105 3 53.694v31.177l27 15.588z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .nav-link { position: relative; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; transition: 0.3s; color: var(--secondary); }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: -6px; left: 0; background: var(--primary); transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid var(--primary); top: 100%; left: 0; z-index: 100; }
+        .dropdown-item { padding: 12px 20px; display: block; font-size: 0.85rem; font-weight: 700; border-bottom: 1px solid #f9f9f9; color: var(--secondary); text-transform: uppercase; transition: 0.3s; }
+        .dropdown-item:hover { background: #f4f4f5; color: var(--primary); padding-left: 25px; }
+        .section-title { position: relative; display: inline-block; padding-bottom: 10px; font-weight: 900; text-transform: uppercase; }
+        .section-title::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--primary); bottom: 0; left: 0; }
+        .btn-primary { background: var(--primary); color: white; border: 2px solid var(--primary); transition: 0.3s; font-weight: 700; text-transform: uppercase; }
+        .btn-primary:hover { background: transparent; color: var(--primary); }
+        .btn-outline { background: transparent; color: white; border: 2px solid white; transition: 0.3s; font-weight: 700; text-transform: uppercase; }
+        .btn-outline:hover { background: white; color: var(--secondary); }
+        #map { height: 100%; min-height: 350px; width: 100%; filter: grayscale(100%) contrast(1.2); }
+        .card-hover { transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #eee; background: white; }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-top: 4px solid var(--primary); }
+        .hero-section { position: relative; height: 85vh; background: var(--secondary); display: flex; align-items: center; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+        .input-group input, .input-group textarea, .input-group select { width: 100%; padding: 12px 15px; border: 1px solid #333; background: #111; color: white; outline: none; transition: 0.3s; font-size: 0.9rem; }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus { border-color: var(--primary); background: #000; }
+        .chatbot-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; }
+        .chatbot-button { background-color: var(--secondary); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; cursor: pointer; font-weight: 700; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; border: 2px solid transparent; }
+        .chatbot-button:hover { background-color: var(--primary); border-color: white; transform: scale(1.05); }
+        .chatbot-panel { position: absolute; bottom: 80px; right: 0; width: 360px; height: 500px; background-color: white; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 20px 50px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; }
+    </style>
+</head>
+<body class="bg-hex">
+    <nav class="fixed w-full z-50 bg-white top-0 left-0 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="LINHAI RESIN" class="h-14">
+                <span class="text-3xl font-black tracking-tighter text-black">LINHAI RESIN</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-red-700">Home</a>
+                <div class="relative dropdown py-2">
+                    <a href="about.html" class="nav-link">Company <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu mt-2">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="certifications.html" class="dropdown-item">Certifications & Licenses</a>
+                        <a href="news.html" class="dropdown-item">News & Events</a>
+                    </div>
+                </div>
+                <div class="relative dropdown py-2">
+                    <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu mt-2">
+                        <a href="products.html" class="dropdown-item">Product Categories</a>
+                        <a href="tech-share.html" class="dropdown-item">Technical Sharing</a>
+                    </div>
+                </div>
+                <a href="solutions.html" class="nav-link">System Solutions</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <div class="relative flex items-center ml-4">
+                    <input type="text" placeholder="Search resin..." class="pl-4 pr-10 py-2 border border-gray-300 rounded focus:outline-none focus:border-red-700 text-sm w-48 transition-all">
+                    <button class="absolute right-3 text-gray-500 hover:text-red-700"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <button class="lg:hidden text-2xl text-black"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1920&q=80" alt="Chemical Lab Background" class="hero-bg">
+        <div class="container mx-auto px-4 relative z-10" data-aos="fade-up">
+            <div class="max-w-4xl">
+                <div class="inline-block px-4 py-1 border border-red-600 text-white text-sm font-bold tracking-widest uppercase mb-6 bg-black bg-opacity-50">
+                    Create Sincere Credit Go In For Higher level
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                    ADVANCED <span class="text-red-600">ION EXCHANGE</span> SOLUTIONS
+                </h1>
+                <p class="text-xl text-white mb-10 font-bold border-l-4 border-red-600 pl-4">
+                    Synthesizing high-purity resins for chromatography, water purification, and strategic metal extraction. Delivering chemical excellence globally. Linhai resin since 1972.
+                </p>
+                <div class="flex gap-4">
+                    <a href="products.html" class="btn-primary px-8 py-4 tracking-widest text-sm">EXPLORE MATRICES <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="about.html" class="btn-outline px-8 py-4 tracking-widest text-sm">INSIDE OUR LAB</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2 relative group" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" class="w-full shadow-2xl filter grayscale group-hover:grayscale-0 transition duration-700" alt="Linhai Factory">
+                <div class="absolute inset-0 bg-red-900 bg-opacity-20 group-hover:bg-opacity-0 transition"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition">
+                        <i class="fas fa-play text-2xl text-red-700 ml-1"></i>
+                    </div>
+                </div>
+                <div class="absolute bottom-6 left-6 bg-black text-white px-4 py-2 text-sm font-bold tracking-wider flex items-center">
+                    <i class="fas fa-video mr-2"></i> WATCH FACILITY TOUR
+                </div>
+            </div>
+            <div class="lg:w-1/2" data-aos="fade-left">
+                <h2 class="text-4xl font-black text-black uppercase mb-6 section-title">COMPANY PROFILE</h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    <strong class="text-black">Jiangsu Linhai Resin Science And Technology Co., Ltd.</strong> was founded in 1972. As a director unit of the China Ion Exchange Resin Industry Association, we bridge the gap between complex polymer chemistry and industrial applications.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-start"><i class="fas fa-check-circle text-red-700 mt-1 mr-3 text-lg"></i><span class="text-gray-800"><strong>Capacity:</strong> 75,000 m² facility with an annual output of 25,000 m³</span></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-red-700 mt-1 mr-3 text-lg"></i><span class="text-gray-800"><strong>Compliance:</strong> EU REACH registered, drinking water & food hygiene certified</span></li>
+                    <li class="flex items-start"><i class="fas fa-check-circle text-red-700 mt-1 mr-3 text-lg"></i><span class="text-gray-800"><strong>Portfolio:</strong> 200+ varieties of macroporous, gel-type, and specialty chelating resins</span></li>
+                </ul>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border border-gray-200 p-6 bg-white shadow-sm border-l-4 border-l-red-700">
+                        <div class="text-3xl font-black text-red-700 mb-1">1972</div>
+                        <div class="text-xs font-bold uppercase text-gray-500">Established</div>
+                    </div>
+                    <div class="border border-gray-200 p-6 bg-white shadow-sm border-l-4 border-l-red-700">
+                        <div class="text-3xl font-black text-red-700 mb-1">100+</div>
+                        <div class="text-xs font-bold uppercase text-gray-500">Export Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-black text-white relative border-y-8 border-red-700">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-red-600 font-bold tracking-widest uppercase text-sm mb-2 block">Innovation Core</span>
+                <h2 class="text-4xl md:text-5xl font-black mb-4 section-title border-white text-white">R&D LABORATORY</h2>
+                <p class="mt-6 text-gray-400 max-w-2xl mx-auto text-lg">Our state-of-the-art laboratory drives the synthesis of next-generation polymer matrices, ensuring atomic-level precision for specialized applications.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 border border-gray-800 p-8 hover:border-red-600 transition duration-300 group" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" alt="Quality Control" class="w-full h-48 object-cover mb-6 opacity-70 group-hover:opacity-100 transition">
+                    <h3 class="text-xl font-bold mb-3"><i class="fas fa-microscope text-red-600 mr-2"></i> Quality Control</h3>
+                    <p class="text-gray-400 text-sm">Rigorous testing of cross-linkage density, moisture retention, and exchange capacity using advanced spectroscopy and chromatography.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-8 hover:border-red-600 transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1574689211272-bc1550ce184b?auto=format&fit=crop&w=800&q=80" alt="Synthesis" class="w-full h-48 object-cover mb-6 opacity-70 group-hover:opacity-100 transition">
+                    <h3 class="text-xl font-bold mb-3"><i class="fas fa-vial text-red-600 mr-2"></i> Polymer Synthesis</h3>
+                    <p class="text-gray-400 text-sm">Developing tailored macroporous and gel structures. Optimization of styrene-DVB copolymerization for maximum mechanical stability.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-8 hover:border-red-600 transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-48 bg-black flex flex-col justify-center items-center mb-6 border border-gray-800">
+                        <i class="fas fa-users text-5xl text-gray-700 mb-2 group-hover:text-red-600 transition"></i>
+                        <span class="text-gray-500 font-bold uppercase">Expert Team</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3"><i class="fas fa-brain text-red-600 mr-2"></i> Chief Chemists</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><span class="text-red-600 font-bold">Dr. He</span> - PhD Polymer Chemistry (27 yrs)</li>
+                        <li><span class="text-red-600 font-bold">Mr. Hu</span> - R&D Project Lead (7 yrs)</li>
+                        <li><span class="text-red-600 font-bold">Ms. Xu</span> - New Product Dev (10 yrs)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+            <div>
+                <h2 class="text-4xl font-black text-black uppercase section-title mb-0">RESIN CATALOG</h2>
+            </div>
+            <p class="text-gray-600 mt-4 md:mt-0 max-w-lg text-right font-bold">Standardized and custom synthesized ion exchange resins engineered for complex molecular separation.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="card-hover p-1" data-aos="fade-up">
+                <div class="h-64 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1605557202138-097825c38700?auto=format&fit=crop&w=800&q=80" alt="Cation Resins" class="w-full h-full object-cover opacity-90">
+                    <div class="absolute top-4 left-4 bg-red-700 text-white text-xs font-bold px-3 py-1 uppercase">Series 001</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3 text-black">Strong Acid Cation</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Polystyrene matrix with sulfonic acid groups. Exceptional capacity for water softening, deionization, and antibiotic extraction.</p>
+                    <a href="product-detail.html" class="text-red-700 font-bold uppercase text-sm hover:text-black transition">TECHNICAL DATA <i class="fas fa-angle-right ml-1"></i></a>
+                </div>
+            </div>
+            <div class="card-hover p-1" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-64 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" alt="Macroporous Resins" class="w-full h-full object-cover opacity-90">
+                    <div class="absolute top-4 left-4 bg-black text-white text-xs font-bold px-3 py-1 uppercase">Series D</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3 text-black">Macroporous Adsorption</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Permanent pore structure ensuring rapid kinetics and resistance to osmotic shock. Ideal for decolorization and organic removal.</p>
+                    <a href="product-detail.html" class="text-red-700 font-bold uppercase text-sm hover:text-black transition">TECHNICAL DATA <i class="fas fa-angle-right ml-1"></i></a>
+                </div>
+            </div>
+            <div class="card-hover p-1" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-64 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=800&q=80" alt="Specialty Resins" class="w-full h-full object-cover opacity-90">
+                    <div class="absolute top-4 left-4 bg-gray-600 text-white text-xs font-bold px-3 py-1 uppercase">Chelating</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3 text-black">Specialty & Chelating</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Highly selective functional groups for precious metal recovery. Includes LH-150Z for zinc removal and LH-836EH for fire-resistant oil.</p>
+                    <a href="product-detail.html" class="text-red-700 font-bold uppercase text-sm hover:text-black transition">TECHNICAL DATA <i class="fas fa-angle-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-black text-white rounded-lg overflow-hidden shadow-2xl flex flex-col lg:flex-row" data-aos="fade-up">
+            <div class="p-10 lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-cube text-3xl text-red-600"></i>
+                    <h3 class="text-2xl font-black uppercase">MOLECULAR<br>MATRIX VIEW</h3>
+                </div>
+                <p class="text-gray-400 mb-8 text-sm leading-relaxed">Interactive simulation of our Polystyrene-Divinylbenzene (DVB) crosslinked matrix. The density of DVB dictates porosity and mechanical strength.</p>
+                <ul class="space-y-3 text-sm text-gray-300 font-mono bg-gray-900 p-4 rounded border border-gray-800">
+                    <li><i class="fas fa-eye text-red-600 w-5"></i> View Structure</li>
+                    <li><i class="fas fa-sync text-red-600 w-5"></i> Continuous Rotation</li>
+                </ul>
+            </div>
+            <div class="lg:w-2/3 h-80 lg:h-auto relative bg-gray-900 flex items-center justify-center">
+                <div class="absolute top-4 right-4 bg-black bg-opacity-70 px-3 py-1 text-white text-xs font-mono border border-gray-700 z-10">Styrene-DVB Copolymer</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Methane-3D-balls.gif" alt="Molecular Animation" class="object-contain h-64 w-64 opacity-80 mix-blend-screen filter grayscale">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-100 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-black text-black uppercase section-title mb-0">INDUSTRIAL APPLICATIONS</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="solution-water.html" class="relative group h-80 block overflow-hidden shadow-lg" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1548332441-ae34e909bafb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                    <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                        <h3 class="text-2xl font-black text-white uppercase tracking-wider">Water Treatment</h3>
+                    </div>
+                </a>
+                <a href="solutions.html" class="relative group h-80 block overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                    <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                        <h3 class="text-2xl font-black text-white uppercase tracking-wider">Pharma & Biotech</h3>
+                    </div>
+                </a>
+                <a href="solutions.html" class="relative group h-80 block overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                    <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                        <h3 class="text-2xl font-black text-white uppercase tracking-wider">Metallurgy Extraction</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-0 shadow-2xl overflow-hidden border border-gray-200">
+                <div class="lg:w-1/2 p-12 bg-white flex flex-col justify-center relative" data-aos="fade-right">
+                    <h2 class="text-4xl font-black mb-8 text-black uppercase section-title">GLOBAL CONTACT</h2>
+                    <div class="space-y-8 mt-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-red-700 mt-1 mr-5 text-2xl w-6"></i>
+                            <div><strong class="text-black uppercase block mb-1 font-black tracking-wider">HQ Address</strong><span class="text-gray-600 leading-relaxed block">No. 190-1 Haicheng Road, Linhai Farm, Sheyang County, Yancheng City, Jiangsu Province, China</span></div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-red-700 mr-5 text-2xl w-6"></i>
+                            <div><strong class="text-black uppercase block mb-1 font-black tracking-wider">Direct Line</strong><span class="text-gray-600 font-mono text-lg">+86 515 88895989</span></div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-red-700 mr-5 text-2xl w-6"></i>
+                            <div><strong class="text-black uppercase block mb-1 font-black tracking-wider">Email</strong><a href="mailto:sales@jslhchem.com" class="text-gray-600 hover:text-red-700 transition font-mono text-lg">sales@jslhchem.com</a></div>
+                        </div>
+                    </div>
+                    <div class="mt-10 h-64 border border-gray-200">
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 bg-black p-12 text-white relative" data-aos="fade-left">
+                    <i class="fas fa-flask absolute -right-10 -top-10 text-9xl text-gray-800 opacity-20"></i>
+                    <h3 class="text-2xl font-black mb-8 uppercase border-l-4 border-red-600 pl-4 tracking-widest">REQUEST TECHNICAL SPECS</h3>
+                    <form class="space-y-6 relative z-10">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="input-group">
+                                <label class="block text-gray-400 mb-2 text-xs font-bold uppercase tracking-widest">Name *</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-gray-400 mb-2 text-xs font-bold uppercase tracking-widest">Email *</label>
+                                <input type="email" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="block text-gray-400 mb-2 text-xs font-bold uppercase tracking-widest">Resin Type / Inquiry *</label>
+                            <select required>
+                                <option value="" disabled selected>Select application...</option>
+                                <option>Water Softening / Cation</option>
+                                <option>Decolorization / Macroporous</option>
+                                <option>Metal Extraction / Chelating</option>
+                                <option>General Pricing Quote</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="block text-gray-400 mb-2 text-xs font-bold uppercase tracking-widest">Project Details</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 text-sm tracking-widest">INITIALIZE TRANSMISSION</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white pt-20 pb-10">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-16 mb-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="logo.jpg" alt="Logo" class="h-10 filter brightness-0 invert">
+                    <span class="text-2xl font-black tracking-tighter">LINHAI RESIN</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-8">Mastering polymer synthesis since 1972. We engineer high-performance ion exchange resins for industrial, food, and nuclear sectors globally.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-weixin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Products</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="products.html" class="hover:text-red-500 transition">Gel Cation</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Macroporous</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Chelating</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Food Grade</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Company</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="about.html" class="hover:text-red-500 transition">About Us</a></li>
+                    <li><a href="certifications.html" class="hover:text-red-500 transition">Certifications</a></li>
+                    <li><a href="news.html" class="hover:text-red-500 transition">News & Events</a></li>
+                    <li><a href="contact.html" class="hover:text-red-500 transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest font-bold">
+            <p>&copy; 2026 Jiangsu Linhai Resin Science And Technology Co., Ltd.</p>
+            <div class="space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-container">
+        <div class="chatbot-panel" id="chat-panel">
+            <div class="chatbot-header flex justify-between items-center bg-black border-t-4 border-red-700">
+                <span class="font-black tracking-widest uppercase text-sm"><i class="fas fa-robot mr-2 text-red-600"></i> LINHAI AI ASSISTANT</span>
+                <button onclick="document.getElementById('chat-panel').style.display='none'" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="flex-1 p-5 bg-gray-50 overflow-y-auto space-y-4">
+                <div class="bg-white border border-gray-200 p-4 rounded text-sm text-black shadow-sm">
+                    Hello! I'm the Linhai Resin virtual assistant. Require technical data or pricing?
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex-1 bg-white border border-gray-300 py-2 text-xs font-bold uppercase hover:border-red-600 hover:text-red-600 transition">Product Types</button>
+                    <button class="flex-1 bg-white border border-gray-300 py-2 text-xs font-bold uppercase hover:border-red-600 hover:text-red-600 transition">Get Quote</button>
+                </div>
+            </div>
+            <div class="p-4 border-t bg-white flex gap-2">
+                <input type="text" placeholder="Query..." class="flex-1 bg-gray-100 border-none px-4 py-2 text-sm outline-none focus:ring-1 focus:ring-red-600">
+                <button class="bg-black text-white px-5 hover:bg-red-700 transition"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button onclick="document.getElementById('chat-panel').style.display='flex'" class="chatbot-button bg-black border-2 border-black hover:border-red-600 hover:bg-black uppercase tracking-widest text-sm">
+            <i class="fas fa-comment-dots mr-3 text-red-600 text-xl"></i> SUPPORT
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.L) {
+                const map = L.map('map', { scrollWheelZoom: false }).setView([33.7758, 120.2626], 13);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
+                L.marker([33.7758, 120.2626]).addTo(map).bindPopup('<b style="font-family:Arial;text-transform:uppercase;">Linhai Resin HQ</b>').openPopup();
+            }
+        });
+    </script>
+</body>
+</html>
