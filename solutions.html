@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Solutions | LINHAI RESIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap');
+        :root { --primary-color: #C1272D; --secondary-color: #000000; --accent-color: #FFFFFF; --dark-gray: #1a1a1a; --light-gray: #f4f4f5; }
+        body { font-family: 'Arial', sans-serif; color: var(--dark-gray); background-color: var(--accent-color); padding-top: 80px; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Arial', sans-serif; }
+        .bg-hex { background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.923' viewBox='0 0 60 103.923' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.321zm0-3.464l27-15.588v-31.177L30 38.105 3 53.694v31.177l27 15.588z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .nav-link { position: relative; font-weight: bold; text-transform: uppercase; font-size: 1.125rem; letter-spacing: 0.5px; transition: 0.3s; color: var(--secondary-color); }
+        .nav-link:hover { color: var(--primary-color); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: -4px; left: 0; background-color: var(--primary-color); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid var(--primary-color); top: 100%; left: 0; padding: 10px 0; z-index: 100; }
+        .dropdown-item { padding: 10px 20px; display: block; color: black; font-size: 1rem; font-weight: bold; transition: 0.3s; }
+        .dropdown-item:hover { background: var(--light-gray); color: var(--primary-color); padding-left: 25px; }
+        .red-underline-title { display: inline-block; border-bottom: 4px solid var(--primary-color); padding-bottom: 4px; }
+    </style>
+</head>
+<body class="bg-hex">
+    <nav class="navbar fixed w-full z-50 bg-white top-0 left-0 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="LINHAI RESIN" class="h-16">
+                <span class="text-3xl font-black text-black tracking-tight">LINHAI RESIN</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="relative dropdown">
+                    <a href="about.html" class="nav-link">Company <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="certifications.html" class="dropdown-item">Certifications & Licenses</a>
+                        <a href="news.html" class="dropdown-item">News & Events</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html" class="dropdown-item">Product Categories</a>
+                        <a href="tech-share.html" class="dropdown-item">Technical Sharing</a>
+                    </div>
+                </div>
+                <a href="solutions.html" class="nav-link text-red-700 border-b-4 border-red-700 pb-1">System Solutions</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-black text-white pt-40 pb-24 text-center border-b-8 border-red-700">
+        <h1 class="text-6xl font-black uppercase mb-6 tracking-tight" data-aos="fade-down">System <span class="text-red-600">Solutions</span></h1>
+        <p class="text-gray-400 tracking-widest text-sm uppercase font-bold">Total Ion Exchange Process Integration</p>
+    </header>
+
+    <section class="py-24 container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a href="solution-water.html" class="group block relative overflow-hidden h-80 shadow-lg border border-gray-200" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1548332441-ae34e909bafb?auto=format&fit=crop&w=800&q=80" alt="Water Treatment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                    <h3 class="text-3xl font-black text-white uppercase tracking-wider mb-2">Water Treatment</h3>
+                    <p class="text-gray-300 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 overflow-hidden">Boiler feed water softening and ultra-pure water demineralization systems.</p>
+                </div>
+            </a>
+            
+            <a href="solution-water.html" class="group block relative overflow-hidden h-80 shadow-lg border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="Pharma & Biotech" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                    <h3 class="text-3xl font-black text-white uppercase tracking-wider mb-2">Pharma & Biotech</h3>
+                    <p class="text-gray-300 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 overflow-hidden">Antibiotic extraction, amino acid purification, and natural extract decolorization.</p>
+                </div>
+            </a>
+
+            <a href="solution-water.html" class="group block relative overflow-hidden h-80 shadow-lg border border-gray-200" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Metallurgy Extraction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                    <h3 class="text-3xl font-black text-white uppercase tracking-wider mb-2">Metallurgy Extraction</h3>
+                    <p class="text-gray-300 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 overflow-hidden">Gold, Uranium, and heavy metal selective recovery from industrial wastewater.</p>
+                </div>
+            </a>
+
+            <a href="solution-water.html" class="group block relative overflow-hidden h-80 shadow-lg border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=800&q=80" alt="New Energy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-70 transition"></div>
+                <div class="absolute bottom-8 left-8 right-8 border-l-4 border-red-600 pl-4">
+                    <h3 class="text-3xl font-black text-white uppercase tracking-wider mb-2">New Energy & Power</h3>
+                    <p class="text-gray-300 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 overflow-hidden">Lithium carbonate purification and EH fire-resistant oil acid reduction.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 底部统一 Footer (与 index 相同) -->
+    <footer class="bg-black text-white pt-20 pb-10 mt-auto">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="logo.jpg" alt="Logo" class="h-10 filter brightness-0 invert">
+                    <span class="text-2xl font-black tracking-tighter">LINHAI RESIN</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-8">Mastering polymer synthesis since 1972. We engineer high-performance ion exchange resins for industrial, food, and nuclear sectors globally.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-weixin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Products</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="products.html" class="hover:text-red-500 transition">Gel Cation</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Macroporous</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Chelating</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Food Grade</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Company</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="about.html" class="hover:text-red-500 transition">About Us</a></li>
+                    <li><a href="certifications.html" class="hover:text-red-500 transition">Certifications</a></li>
+                    <li><a href="news.html" class="hover:text-red-500 transition">News & Events</a></li>
+                    <li><a href="contact.html" class="hover:text-red-500 transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest font-bold">
+            <p>&copy; 2026 Jiangsu Linhai Resin Science And Technology Co., Ltd.</p>
+        </div>
+    </footer>
+    
+    <!-- 统一 Chatbot -->
+    <div class="fixed bottom-8 right-8 z-[1000] flex flex-col items-end">
+        <div id="chat-panel" class="w-80 bg-white border border-gray-300 shadow-2xl mb-4 flex-col overflow-hidden rounded-t-lg hidden">
+            <div class="bg-black text-white p-4 flex justify-between items-center border-b-4 border-red-600">
+                <span class="font-black uppercase text-sm tracking-widest"><i class="fas fa-robot mr-2 text-red-600"></i> Linhai AI Assistant</span>
+                <button onclick="document.getElementById('chat-panel').style.display='none'" class="hover:text-red-500 text-xl"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="p-4 bg-gray-50 h-64 overflow-y-auto flex flex-col gap-3">
+                <div class="bg-white border border-gray-200 p-3 text-black text-sm shadow-sm rounded">Hello! I'm the Linhai Resin virtual assistant. Require technical data or pricing?</div>
+            </div>
+            <div class="border-t border-gray-200 p-3 bg-white flex">
+                <input type="text" placeholder="Query..." class="flex-1 bg-gray-100 px-3 py-2 text-sm text-black focus:outline-none focus:border-red-600 border border-transparent">
+                <button class="bg-black text-white px-4 py-2 hover:bg-red-600 transition-colors"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button onclick="document.getElementById('chat-panel').style.display='flex'" class="bg-black text-white px-6 py-4 rounded-full font-black uppercase flex items-center gap-3 shadow-xl hover:border-red-600 border-2 border-black transition-colors text-sm tracking-widest">
+            <i class="fas fa-comment-dots text-xl text-red-600"></i> Support
+        </button>
+    </div>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
