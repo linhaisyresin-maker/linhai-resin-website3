@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Treatment Solutions | LINHAI RESIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap');
+        :root { --primary-color: #C1272D; --secondary-color: #000000; --accent-color: #FFFFFF; --dark-gray: #1a1a1a; --light-gray: #f4f4f5; }
+        body { font-family: 'Arial', sans-serif; color: var(--dark-gray); background-color: var(--accent-color); padding-top: 80px; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Arial', sans-serif; }
+        .bg-hex { background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.923' viewBox='0 0 60 103.923' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.321zm0-3.464l27-15.588v-31.177L30 38.105 3 53.694v31.177l27 15.588z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .nav-link { position: relative; font-weight: bold; text-transform: uppercase; font-size: 1.125rem; letter-spacing: 0.5px; transition: 0.3s; color: var(--secondary-color); }
+        .nav-link:hover { color: var(--primary-color); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: -4px; left: 0; background-color: var(--primary-color); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid var(--primary-color); top: 100%; left: 0; padding: 10px 0; z-index: 100; }
+        .dropdown-item { padding: 10px 20px; display: block; color: black; font-size: 1rem; font-weight: bold; transition: 0.3s; }
+        .dropdown-item:hover { background: var(--light-gray); color: var(--primary-color); padding-left: 25px; }
+        .red-underline-title { display: inline-block; border-bottom: 4px solid var(--primary-color); padding-bottom: 4px; }
+        .btn-primary { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); transition: 0.3s; font-weight: bold; text-transform: uppercase; }
+        .btn-primary:hover { background: transparent; color: var(--primary-color); }
+    </style>
+</head>
+<body class="bg-hex">
+    <!-- 导航栏复用 -->
+    <nav class="navbar fixed w-full z-50 bg-white top-0 left-0 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="LINHAI RESIN" class="h-16">
+                <span class="text-3xl font-black text-black tracking-tight">LINHAI RESIN</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="relative dropdown">
+                    <a href="about.html" class="nav-link">Company <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="certifications.html" class="dropdown-item">Certifications & Licenses</a>
+                        <a href="news.html" class="dropdown-item">News & Events</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html" class="dropdown-item">Product Categories</a>
+                        <a href="tech-share.html" class="dropdown-item">Technical Sharing</a>
+                    </div>
+                </div>
+                <a href="solutions.html" class="nav-link text-red-700 border-b-4 border-red-700 pb-1">System Solutions</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[50vh] flex items-center justify-center bg-black overflow-hidden border-b-8 border-red-700">
+        <img src="https://images.unsplash.com/photo-1548332441-ae34e909bafb?auto=format&fit=crop&w=1920&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50 filter grayscale">
+        <div class="relative z-10 text-center text-white px-4" data-aos="fade-down">
+            <h1 class="text-5xl md:text-6xl font-black uppercase mb-4 tracking-tight">Water Treatment <span class="text-red-600">Solutions</span></h1>
+            <p class="tracking-widest text-sm uppercase font-bold">Industrial Softening & Ultra-Pure Demineralization</p>
+        </div>
+    </header>
+
+    <section class="py-24 container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-16">
+            <div class="lg:w-2/3" data-aos="fade-right">
+                <h2 class="text-3xl font-black uppercase mb-8 red-underline-title">Industry Knowledge & Applications</h2>
+                <div class="prose max-w-none text-gray-700 leading-relaxed text-lg space-y-6 mb-12">
+                    <p>Industrial water treatment is essential for preventing scaling and corrosion in boilers, cooling towers, and processing equipment. Ion exchange resins serve as the backbone of demineralization and softening systems globally.</p>
+                    <p>Our strong acid cation (e.g., LH-007) and strong base anion resins efficiently remove hardness ions (Calcium and Magnesium) and completely deionize water for power plants, microelectronics, and HVAC applications. We offer tailored guidelines on bed depth, service flow rates, and optimal regeneration strategies to maximize resin lifespan and minimize effluent footprint.</p>
+                </div>
+
+                <h2 class="text-3xl font-black uppercase mb-8 red-underline-title">Recommended Resins</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-gray-200 p-6 bg-white shadow-sm flex items-center gap-6 hover:border-red-700 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1605557202138-097825c38700?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover">
+                        <div>
+                            <h4 class="font-black uppercase text-xl mb-1">LH-007 (001x7)</h4>
+                            <p class="text-xs text-gray-500 uppercase font-bold mb-2 tracking-widest">Strong Acid Cation</p>
+                            <a href="product-detail.html" class="text-red-700 font-bold text-sm hover:underline uppercase">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 p-6 bg-white shadow-sm flex items-center gap-6 hover:border-red-700 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover">
+                        <div>
+                            <h4 class="font-black uppercase text-xl mb-1">D001</h4>
+                            <p class="text-xs text-gray-500 uppercase font-bold mb-2 tracking-widest">Macroporous Cation</p>
+                            <a href="product-detail.html" class="text-red-700 font-bold text-sm hover:underline uppercase">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/3" data-aos="fade-left">
+                <div class="bg-black p-10 text-white shadow-2xl sticky top-32">
+                    <h3 class="text-2xl font-black uppercase mb-6 border-l-4 border-red-600 pl-4 tracking-widest">Request a Solution</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Leave your application details and our chemical engineers will contact you within 24 hours.</p>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Name *</label>
+                            <input type="text" required class="w-full bg-gray-900 border border-gray-700 text-white p-3 outline-none focus:border-red-600 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email *</label>
+                            <input type="email" required class="w-full bg-gray-900 border border-gray-700 text-white p-3 outline-none focus:border-red-600 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Requirements *</label>
+                            <textarea rows="5" required class="w-full bg-gray-900 border border-gray-700 text-white p-3 outline-none focus:border-red-600 transition resize-none" placeholder="Describe your water treatment needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 tracking-widest text-sm">SUBMIT INQUIRY</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部统一 Footer -->
+    <footer class="bg-black text-white pt-20 pb-10 mt-auto">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="logo.jpg" alt="Logo" class="h-10 filter brightness-0 invert">
+                    <span class="text-2xl font-black tracking-tighter">LINHAI RESIN</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-8">Mastering polymer synthesis since 1972. We engineer high-performance ion exchange resins for industrial, food, and nuclear sectors globally.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition"><i class="fab fa-weixin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Products</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="products.html" class="hover:text-red-500 transition">Gel Cation</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Macroporous</a></li>
+                    <li><a href="products.html" class="hover:text-red-500 transition">Chelating</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-white text-sm tracking-widest border-l-4 border-red-700 pl-3">Company</h4>
+                <ul class="text-gray-400 text-sm space-y-4 font-bold">
+                    <li><a href="about.html" class="hover:text-red-500 transition">About Us</a></li>
+                    <li><a href="certifications.html" class="hover:text-red-500 transition">Certifications</a></li>
+                    <li><a href="contact.html" class="hover:text-red-500 transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest font-bold">
+            <p>&copy; 2026 Jiangsu Linhai Resin Science And Technology Co., Ltd.</p>
+        </div>
+    </footer>
+    <!-- Chatbot 复用 (同上) -->
+    <div class="fixed bottom-8 right-8 z-[1000] flex flex-col items-end">
+        <div id="chat-panel" class="w-80 bg-white border border-gray-300 shadow-2xl mb-4 flex-col overflow-hidden rounded-t-lg hidden">
+            <div class="bg-black text-white p-4 flex justify-between items-center border-b-4 border-red-600">
+                <span class="font-black uppercase text-sm tracking-widest"><i class="fas fa-robot mr-2 text-red-600"></i> Linhai AI Assistant</span>
+                <button onclick="document.getElementById('chat-panel').style.display='none'" class="hover:text-red-500 text-xl"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="p-4 bg-gray-50 h-64 overflow-y-auto flex flex-col gap-3">
+                <div class="bg-white border border-gray-200 p-3 text-black text-sm shadow-sm rounded">Hello! I'm the Linhai Resin virtual assistant. Require technical data or pricing?</div>
+            </div>
+            <div class="border-t border-gray-200 p-3 bg-white flex">
+                <input type="text" placeholder="Query..." class="flex-1 bg-gray-100 border-none px-4 py-2 text-sm text-black focus:outline-none focus:border-red-600 border border-transparent">
+                <button class="bg-black text-white px-4 py-2 hover:bg-red-600 transition-colors"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button onclick="document.getElementById('chat-panel').style.display='flex'" class="bg-black text-white px-6 py-4 rounded-full font-black uppercase flex items-center gap-3 shadow-xl hover:border-red-600 border-2 border-black transition-colors text-sm tracking-widest">
+            <i class="fas fa-comment-dots text-xl text-red-600"></i> Support
+        </button>
+    </div>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
