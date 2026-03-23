@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications & Licenses | LINHAI RESIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700;900&display=swap');
+        :root { --primary: #C1272D; --secondary: #000000; --accent: #FFFFFF; }
+        body { font-family: 'Arial', sans-serif; color: var(--secondary); background: var(--accent); padding-top: 80px; overflow-x: hidden; }
+        .bg-hex { background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.923' viewBox='0 0 60 103.923' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.321zm0-3.464l27-15.588v-31.177L30 38.105 3 53.694v31.177l27 15.588z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .nav-link { position: relative; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; transition: 0.3s; color: var(--secondary); }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: -6px; left: 0; background: var(--primary); transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid var(--primary); top: 100%; left: 0; z-index: 100; }
+        .dropdown-item { padding: 12px 20px; display: block; font-size: 0.85rem; font-weight: 700; border-bottom: 1px solid #f9f9f9; color: var(--secondary); text-transform: uppercase; transition: 0.3s; }
+        .dropdown-item:hover { background: #f4f4f5; color: var(--primary); padding-left: 25px; }
+        .red-underline-title { display: inline-block; border-bottom: 4px solid var(--primary); padding-bottom: 4px; }
+        .cert-card { transition: 0.3s; background: white; border: 1px solid #eee; }
+        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--primary); }
+    </style>
+</head>
+<body class="bg-hex">
+    <nav class="fixed w-full z-50 bg-white top-0 left-0 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3"><img src="logo.jpg" alt="LINHAI RESIN" class="h-14"><span class="text-3xl font-black text-black tracking-tight">LINHAI RESIN</span></a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="relative dropdown py-2">
+                    <a href="about.html" class="nav-link text-red-700 border-b-4 border-red-700 pb-1">Company <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu mt-2">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="certifications.html" class="dropdown-item text-red-700">Certifications & Licenses</a>
+                        <a href="news.html" class="dropdown-item">News & Events</a>
+                    </div>
+                </div>
+                <div class="relative dropdown py-2">
+                    <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu mt-2">
+                        <a href="products.html" class="dropdown-item">Product Categories</a>
+                        <a href="tech-share.html" class="dropdown-item">Technical Sharing</a>
+                    </div>
+                </div>
+                <a href="solutions.html" class="nav-link">System Solutions</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-black text-white pt-40 pb-24 text-center border-b-8 border-red-700">
+        <h1 class="text-6xl font-black uppercase mb-6 tracking-tight">Certifications & <span class="text-red-600">Licenses</span></h1>
+        <p class="text-gray-400 tracking-widest text-sm uppercase font-bold">Global Standards of Quality and Safety</p>
+    </header>
+
+    <section class="py-24 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black uppercase mb-4 red-underline-title">Quality Assurance</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Linhai Resin adheres to the strictest international standards, ensuring our products meet the demanding requirements of the pharmaceutical, food, and nuclear industries.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="cert-card p-6 text-center cursor-pointer">
+                <div class="h-48 bg-gray-100 flex items-center justify-center mb-6">
+                    <i class="fas fa-certificate text-6xl text-gray-300"></i>
+                </div>
+                <h3 class="text-lg font-black uppercase mb-2">ISO 9001:2015</h3>
+                <p class="text-sm text-gray-500">Quality Management System Certification</p>
+            </div>
+            <div class="cert-card p-6 text-center cursor-pointer">
+                <div class="h-48 bg-gray-100 flex items-center justify-center mb-6">
+                    <i class="fas fa-shield-alt text-6xl text-gray-300"></i>
+                </div>
+                <h3 class="text-lg font-black uppercase mb-2">WQA Gold Seal</h3>
+                <p class="text-sm text-gray-500">Certified for Drinking Water Safety</p>
+            </div>
+            <div class="cert-card p-6 text-center cursor-pointer">
+                <div class="h-48 bg-gray-100 flex items-center justify-center mb-6">
+                    <i class="fas fa-leaf text-6xl text-gray-300"></i>
+                </div>
+                <h3 class="text-lg font-black uppercase mb-2">EU REACH</h3>
+                <p class="text-sm text-gray-500">European Chemicals Agency Registered</p>
+            </div>
+            <div class="cert-card p-6 text-center cursor-pointer">
+                <div class="h-48 bg-gray-100 flex items-center justify-center mb-6">
+                    <i class="fas fa-utensils text-6xl text-gray-300"></i>
+                </div>
+                <h3 class="text-lg font-black uppercase mb-2">Food Hygiene</h3>
+                <p class="text-sm text-gray-500">FDA Compliant & Halal/Kosher Certified</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-12 text-center">
+        <p class="text-xs tracking-widest uppercase text-gray-500">© 2026 Jiangsu Linhai Resin Science and Technology Co., Ltd. | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
