@@ -1,0 +1,103 @@
+<!-- product-detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SX-890X Detail | LINHAI RESIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700;900&display=swap');
+        :root { --primary: #C1272D; --secondary: #000000; --accent: #FFFFFF; }
+        body { font-family: 'Arial', sans-serif; color: var(--secondary); background: var(--accent); padding-top: 80px; overflow-x: hidden; }
+        .bg-hex { background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.923' viewBox='0 0 60 103.923' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.321zm0-3.464l27-15.588v-31.177L30 38.105 3 53.694v31.177l27 15.588z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+        .nav-link { position: relative; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; transition: 0.3s; color: var(--secondary); }
+        .section-title { position: relative; display: inline-block; padding-bottom: 10px; font-weight: 900; text-transform: uppercase; }
+        .section-title::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--primary); bottom: 0; left: 0; }
+        .sidebar-link { display: block; padding: 15px 20px; color: var(--secondary); text-decoration: none; border-left: 4px solid transparent; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; border-bottom: 1px solid #eee; }
+        .sidebar-link:hover, .sidebar-link.active { background-color: #fafafa; border-left-color: var(--primary); color: var(--primary); }
+        .tech-table { width: 100%; border-collapse: collapse; }
+        .tech-table th, .tech-table td { padding: 15px; border: 1px solid #ddd; text-align: left; }
+        .tech-table th { background-color: #f4f4f5; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; color: var(--secondary); width: 40%; }
+        .btn-primary { background: var(--primary); color: white; border: 2px solid var(--primary); transition: 0.3s; font-weight: 900; text-transform: uppercase; padding: 15px 30px; display: inline-block; }
+        .btn-primary:hover { background: transparent; color: var(--primary); }
+    </style>
+</head>
+<body class="bg-hex">
+    <nav class="fixed w-full z-50 bg-white top-0 left-0 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="LINHAI RESIN" class="h-14">
+                <span class="text-3xl font-black tracking-tighter text-black">LINHAI RESIN</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">Company</a>
+                <a href="products.html" class="nav-link text-red-700 border-b-4 border-red-700 pb-1">Products</a>
+                <a href="solutions.html" class="nav-link">System Solutions</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-20 flex flex-col lg:flex-row gap-12" style="margin-top: 40px;">
+        <aside class="lg:w-1/4">
+            <div class="sticky top-32 bg-white border border-gray-200 shadow-sm">
+                <div class="bg-black text-white p-5 font-black uppercase text-xl tracking-widest">Categories</div>
+                <nav class="flex flex-col">
+                    <a href="products.html" class="sidebar-link">All Products</a>
+                    <a href="products.html" class="sidebar-link">Strong Acid Cation</a>
+                    <a href="products.html" class="sidebar-link">Macroporous Adsorption</a>
+                    <a href="products.html" class="sidebar-link active">Specialty Resins</a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="lg:w-3/4 bg-white p-10 border border-gray-200 shadow-sm relative">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80') center/cover;"></div>
+            
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row gap-10 mb-16 border-b pb-12">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" alt="SX-890X" class="w-full object-cover border-4 border-gray-100 shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 flex flex-col justify-center">
+                        <h1 class="text-5xl font-black uppercase mb-2">SX-890X</h1>
+                        <p class="text-lg font-bold text-red-700 uppercase tracking-widest mb-6">Special Resin for Nitrate Removal</p>
+                        <p class="text-gray-700 leading-relaxed mb-8">SX-890X is a styrene-based strongly basic anion exchange resin with a macroporous structure. Owing to its specific manufacturing process and active functional groups, it exhibits an excellent selective removal capacity for nitrate and nitrite ions in aqueous solution under the condition of coexisting sulfate (SO4²⁻), chloride (Cl⁻) and bicarbonate (HCO3⁻) ions.</p>
+                        <div>
+                            <a href="contact.html" class="btn-primary w-full text-center">CONTACT SALES</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-black uppercase mb-8 section-title">Physical Properties</h2>
+                    <table class="tech-table">
+                        <tbody>
+                            <tr><th>Matrix</th><td>Styrene-based</td></tr>
+                            <tr><th>Functional Group</th><td>-N+(CH₃)₃</td></tr>
+                            <tr><th>As-received Form</th><td>Cl⁻ form</td></tr>
+                            <tr><th>Total Exchange Capacity by Mass</th><td>≥2.9 mmol/g(+)</td></tr>
+                            <tr><th>Moisture Content</th><td>50~60 %</td></tr>
+                            <tr><th>Wet Bulk Density</th><td>0.72~0.85 g/ml</td></tr>
+                            <tr><th>Wet True Density</th><td>1.06~1.10 g/ml</td></tr>
+                            <tr><th>Spherical Bead Rate</th><td>≥90.0 %</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-black uppercase mb-8 section-title">Applications</h2>
+                    <p class="text-gray-700 leading-relaxed">SX-890X resin is widely used in industrial wastewater treatment for total nitrogen reduction. Featuring a macroporous structure, this resin has superior pollution resistance to low-molecular-weight organic molecules in water, as well as excellent impermeability and mechanical strength.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-black text-white py-12 text-center text-xs tracking-widest uppercase mt-auto">
+        &copy; 2026 Jiangsu Linhai Resin Science and Technology Co., Ltd.
+    </footer>
+</body>
+</html>
